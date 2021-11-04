@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+  success: "It works!"
+  home:
+    info: You are seeing the rendered view of 'views/home/index.html.erb'
+    managementsystem: Paper Management System
+  authors:
+    create:
+      title: Create Author
