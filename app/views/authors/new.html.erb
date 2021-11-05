@@ -1,3 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <h1> <%= I18n.t 'authors.create.title' %> </h1>
+<%= form_with model: @author do |form| %>
+  <div>
+    <%= form.label 'First Name' %><br>
+    <%= form.text_field 'author[first_name]' %>
+  </div>
+
+  <div>
+    <%= form.label 'Last Name' %><br>
+    <%= form.text_field 'author[last_name]' %>
+  </div>
+
+  <div>
+    <%= form.label 'Homepage' %><br>
+    <%= form.text_field 'author[homepage]' %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
