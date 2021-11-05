@@ -1,0 +1,2 @@
+module NewAuthorHelper
+end

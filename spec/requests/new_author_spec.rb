@@ -1,8 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Authors", type: :request do
-  describe "GET /new" do
-    let(:action) { -> {get "/new_author"}}
+RSpec.describe "NewAuthors", type: :request do
+  describe "GET /index" do
+    let(:action) { -> {get "/authors/new"}}
+
     it "returns http success" do
       action.call
       expect(response).to have_http_status(:success)
