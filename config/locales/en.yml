@@ -38,3 +38,7 @@ en:
   authors:
     create:
       title: Create Author
+      fields:
+        first_name: First Name
+        last_name: Last Name
+        homepage: Homepage

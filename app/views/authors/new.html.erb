@@ -3,18 +3,18 @@
 <h1> <%= I18n.t 'authors.create.title' %> </h1>
 <%= form_with model: @author do |form| %>
   <div>
-    <%= form.label 'First Name' %><br>
-    <%= form.text_field 'author[first_name]' %>
+    <%= form.label I18n.t 'authors.create.fields.first_name' %><br>
+    <%= form.text_field 'first_name' %>
   </div>
 
   <div>
-    <%= form.label 'Last Name' %><br>
-    <%= form.text_field 'author[last_name]' %>
+    <%= form.label I18n.t 'authors.create.fields.last_name' %><br>
+    <%= form.text_field 'last_name' %>
   </div>
 
   <div>
-    <%= form.label 'Homepage' %><br>
-    <%= form.text_field 'author[homepage]' %>
+    <%= form.label I18n.t 'authors.create.fields.homepage' %><br>
+    <%= form.text_field 'homepage' %>
   </div>
 
   <div>
