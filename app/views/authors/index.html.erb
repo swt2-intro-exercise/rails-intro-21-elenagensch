@@ -15,8 +15,11 @@
   <% end %>
 </table>
 
-<form method="get" action = "authors/new">
-  <button type="button_to"> <%= I18n.t 'authors.create.title' %> </button>
-</form>
+<%= link_to "Create Author", new_author_path %>
+
+
+<!--<form method="get" action = "authors/new">-->
+<!--  <button type="button_to"> <%#= I18n.t 'authors.create.title' %> </button>-->
+<!--</form>-->
 
 <br>

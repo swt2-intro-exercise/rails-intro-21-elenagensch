@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe "New author page", type: :feature do
-
   let(:first_name) { 'Alan' }
   let(:last_name) { 'Turing' }
   let(:homepage) { 'http://wikipedia.de/Alan_Turing' }
@@ -27,6 +26,6 @@ describe "New author page", type: :feature do
   end
 
   it "should link to the New Author page" do
-    expect(page).to have_button "Create Author"
+    expect(page).to have_link 'Create Author', href: new_author_path
   end
 end
