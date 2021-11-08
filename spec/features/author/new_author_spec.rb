@@ -9,7 +9,7 @@ describe "New author page", type: :feature do
     visit new_author_path
   end
 
-  it "shows title" do
+  it "should display the title" do
     expect(page).to have_text("Create Author")
   end
 
@@ -19,7 +19,7 @@ describe "New author page", type: :feature do
     expect(page).to have_field('author[homepage]')
   end
 
-  it "creates an author when " do
+  it "should create an author when input is valid" do
     page.fill_in 'author[first_name]', with: first_name
     page.fill_in 'author[last_name]', with: last_name
     page.fill_in 'author[homepage]', with: homepage
@@ -27,5 +27,15 @@ describe "New author page", type: :feature do
     find('input[type="submit"]').click
 
     expect(Author.exists?(first_name: first_name, last_name: last_name, homepage: homepage))
+  end
+
+  it "should display error message when input is invalid" do
+    page.fill_in 'author[first_name]', with: first_name
+    page.fill_in 'author[last_name]', with: ''
+    page.fill_in 'author[homepage]', with: homepage
+
+    find('input[type="submit"]').click
+
+    expect(page).to have_text("Last name can't be blank")
   end
 end
