@@ -12,4 +12,9 @@ RSpec.describe Paper, type: :model do
     expect(@paper.venue).to eq(venue)
     expect(@paper.year).to eq(year)
   end
+
+  it 'should not accept empty title' do
+    @paper = Paper.create(title: '', venue: venue, year: year)
+    expect(@paper).to_not be_valid
+  end
 end
