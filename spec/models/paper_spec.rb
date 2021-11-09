@@ -14,7 +14,7 @@ RSpec.describe Paper, type: :model do
   end
 
   it 'should not accept empty title' do
-    @paper = Paper.create(title: '', venue: venue, year: year)
+    @paper = Paper.create(title: '', venue: '', year: year)
     expect(@paper).to_not be_valid
   end
 end

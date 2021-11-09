@@ -21,7 +21,7 @@ RSpec.describe "/papers", type: :request do
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {title: '', venue: '', year: 1950}
   }
 
   describe "GET /index" do
