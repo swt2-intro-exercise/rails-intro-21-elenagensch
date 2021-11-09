@@ -14,7 +14,22 @@ RSpec.describe Paper, type: :model do
   end
 
   it 'should not accept empty title' do
-    @paper = Paper.create(title: '', venue: '', year: '')
+    @paper = Paper.create(title: '', venue: venue, year: 1950)
+    expect(@paper).to_not be_valid
+  end
+
+  it 'should not accept empty venue' do
+    @paper = Paper.create(title: title, venue: '', year: year)
+    expect(@paper).to_not be_valid
+  end
+
+  it 'should not accept empty year' do
+    @paper = Paper.create(title: title, venue: venue, year: nil)
+    expect(@paper).to_not be_valid
+  end
+
+  it 'should not accept nonnumerical year' do
+    @paper = Paper.create(title: title, venue: venue, year: 'nineteen-fifty')
     expect(@paper).to_not be_valid
   end
 end

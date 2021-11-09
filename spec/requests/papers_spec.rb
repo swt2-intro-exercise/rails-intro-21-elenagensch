@@ -21,7 +21,7 @@ RSpec.describe "/papers", type: :request do
   }
 
   let(:invalid_attributes) {
-    {title: '', venue: '', year: nil}
+    {title: '', venue: '', year: 'nineteen-fifty'}
   }
 
   describe "GET /index" do
