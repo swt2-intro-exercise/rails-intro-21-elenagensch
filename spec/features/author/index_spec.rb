@@ -20,7 +20,7 @@ describe "New author page", type: :feature do
     expect(page).to have_css('th', text: 'Homepage')
   end
 
-  it "should link to the author's details page" do
+  it "should link to the individual author details page" do
     @author = FactoryBot.create :author
     expect(page).to have_link @author.name
   end
@@ -28,4 +28,16 @@ describe "New author page", type: :feature do
   it "should link to the New Author page" do
     expect(page).to have_link 'Create Author', href: new_author_path
   end
+
+  it "should link to the individual author edit page" do
+     @author = FactoryBot.create :author
+     expect(page).to have_link "Edit"
+  end
+
+  it "should delete author edit page" do
+       click_on 'Delete'
+       expect(page).to have_no_text(first_name)
+       expect(page).to have_no_text(last_name)
+       expect(page).to have_no_text(homepage)
+    end
 end
