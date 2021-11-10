@@ -20,6 +20,10 @@ RSpec.describe "/papers", type: :request do
     {title: 'COMPUTING MACHINERY AND INTELLIGENCE', venue: 'Mind 49: 433-460', year: 1950}
   }
 
+  let(:valid_attributes_with_year) {
+    {title: 'COMPUTING MACHINERY AND INTELLIGENCE', venue: 'Mind 49: 433-460', year: 1950}
+  }
+
   let(:invalid_attributes) {
     {title: '', venue: '', year: 'nineteen-fifty'}
   }
@@ -29,6 +33,15 @@ RSpec.describe "/papers", type: :request do
       Paper.create! valid_attributes
       get papers_url
       expect(response).to be_successful
+    end
+
+    describe "GET /index" do
+      it "renders a successful response with year query" do
+        @year = 1950
+        Paper.create! valid_attributes
+        get papers_url(@year)
+        expect(response).to be_successful
+      end
     end
   end
 

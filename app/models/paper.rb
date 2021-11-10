@@ -1,4 +1,6 @@
 class Paper < ApplicationRecord
+  scope :published, -> (year) { where("year LIKE ?", year) }
+
   validates :title, presence: true
   validates :venue, presence: true
   validates :year, presence:true, numericality: { only_integer: true }
