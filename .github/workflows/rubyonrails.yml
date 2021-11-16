@@ -29,6 +29,8 @@ jobs:
         run: |
           RAILS_ENV=test bundle exec rails db:migrate
           bundle exec rspec spec/
+      - name: Run RuboCop
+        run: bundle exec rubocop --parallel
       - name: Run exercise automation
         run: |
           ./.github/workflows/exercise_automation
