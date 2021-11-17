@@ -30,11 +30,11 @@ jobs:
           RAILS_ENV=test bundle exec rails db:migrate
           bundle exec rspec spec/
       - name: Get file changes
-          id: get_file_changes
-          uses: dorner/file-changes-action@v1.2.0
-          with:
-            githubToken: ${{ secrets.GITHUB_TOKEN }}
-            plaintext: true
+        id: get_file_changes
+        uses: dorner/file-changes-action@v1.2.0
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          plaintext: true
       - name: Echo file changes
         run: |
           echo Changed files: ${{ steps.get_file_changes.outputs.files }}
