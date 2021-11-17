@@ -1,5 +1,5 @@
 class Paper < ApplicationRecord
-  scope :published, -> (year) { where("year LIKE ?", year) }
+  scope :published, -> (year) { where('year LIKE ?', year) }
 
   validates :title, presence: true
   validates :venue, presence: true
