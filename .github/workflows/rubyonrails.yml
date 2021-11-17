@@ -29,27 +29,6 @@ jobs:
         run: |
           RAILS_ENV=test bundle exec rails db:migrate
           bundle exec rspec spec/
-      - name: Get file changes
-        id: get_file_changes
-        uses: dorner/file-changes-action@v1.2.0
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-          plaintext: true
-      - name: Echo file changes
-        run: |
-          echo Changed files: ${{ steps.get_file_changes.outputs.files }}
-      - name: Rubocop Linter Action
-        uses: andrewmcodes/rubocop-linter-action@v3.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        script:
-#          - BASE=$(git merge-base origin/master HEAD)
-#          - >
-#            git diff --name-only --diff-filter=d ${BASE} HEAD
-#            | tee /dev/stderr
-#            | xargs --no-run-if-empty bundle exec rubocop --force-exclusion --parallel
-#        except:
-#          refs: [ master ]
       - name: Run exercise automation
         run: |
           ./.github/workflows/exercise_automation
