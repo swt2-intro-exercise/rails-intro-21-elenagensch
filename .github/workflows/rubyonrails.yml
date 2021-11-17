@@ -38,13 +38,10 @@ jobs:
       - name: Echo file changes
         run: |
           echo Changed files: ${{ steps.get_file_changes.outputs.files }}
-      - name: Run lint
-        uses: dorner/lint-action@v1.3.3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          rubocop_bundler: true
-          auto_fix: true
-          rubocop_bundler_args: -R --fail-level C ${{ steps.get_file_changes.outputs.files}}
+      - name: Rubocop Linter Action
+        uses: andrewmcodes/rubocop-linter-action@v3.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #        script:
 #          - BASE=$(git merge-base origin/master HEAD)
 #          - >
