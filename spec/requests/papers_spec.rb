@@ -28,7 +28,7 @@ RSpec.describe "/papers", type: :request do
     {title: '', venue: '', year: 'nineteen-fifty'}
   }
 
-  describe "GET /index" do
+  describe 'GET /index' do
     it "renders a successful response" do
       Paper.create! valid_attributes
       get papers_url
