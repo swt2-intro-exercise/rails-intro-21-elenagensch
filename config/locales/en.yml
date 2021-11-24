@@ -31,3 +31,20 @@
 
 en:
   hello: "Hello world"
+  success: "It works!"
+  home:
+    info: You are seeing the rendered view of 'views/home/index.html.erb'
+    managementsystem: Paper Management System
+  authors:
+    create:
+      title: Create Author
+      fields:
+        first_name: First Name
+        last_name: Last Name
+        homepage: Homepage
+
+      error: prohibited this article from being saved
+
+    edit:
+      title: "Edit %{name}."
+

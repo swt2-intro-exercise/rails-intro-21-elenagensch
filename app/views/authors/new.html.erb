@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<% if @author.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@author.errors.count, "error") %> <% I18n.t 'authors.create.error' %> </h2>
+
+    <ul>
+      <% @author.errors.full_messages.each do |full_message| %>
+        <li><%= full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<h1> <%= I18n.t 'authors.create.title' %> </h1>
+<%= form_with model: @author do |form| %>
+  <div>
+    <%= form.label I18n.t 'authors.create.fields.first_name' %><br>
+    <%= form.text_field 'first_name' %>
+  </div>
+
+  <div>
+    <%= form.label I18n.t 'authors.create.fields.last_name' %><br>
+    <%= form.text_field 'last_name' %>
+  </div>
+
+  <div>
+    <%= form.label I18n.t 'authors.create.fields.homepage' %><br>
+    <%= form.text_field 'homepage' %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
